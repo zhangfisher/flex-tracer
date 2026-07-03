@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "zig-build-debug",
+      "type": "shell",
+      "command": "zig",
+      "args": [
+        "build",
+        "-Doptimize=Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$zigcc"
+      ]
+    },
+    {
+      "label": "zig-build-release",
+      "type": "shell",
+      "command": "zig",
+      "args": [
+        "build",
+        "-Doptimize=ReleaseSafe"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": [
+        "$zigcc"
+      ]
+    },
+    {
+      "label": "zig-build-run",
+      "type": "shell",
+      "command": "zig",
+      "args": [
+        "build",
+        "run"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": [
+        "$zigcc"
+      ]
+    },
+    {
+      "label": "zig-test",
+      "type": "shell",
+      "command": "zig",
+      "args": [
+        "build",
+        "test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "test",
+      "problemMatcher": [
+        "$zigcc"
+      ]
+    },
+    {
+      "label": "zig-clean",
+      "type": "shell",
+      "command": "zig",
+      "args": [
+        "build",
+        "--clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build"
+    }
+  ]
+}

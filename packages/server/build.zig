@@ -21,6 +21,17 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+
+    const zig_string = b.dependency("zig_string", .{
+        .target = target,
+        .optimize = optimize,
+    });
+
+    const nexlog = b.dependency("nexlog", .{
+        .target = target,
+        .optimize = optimize,
+    });
+
     // It's also possible to define more custom flags to toggle optional features
     // of this build script using `b.option()`. All defined flags (including
     // target and optimize options) will be listed when running `zig build --help`
@@ -33,7 +44,7 @@ pub fn build(b: *std.Build) void {
     // to our consumers. We must give it a name because a Zig package can expose
     // multiple modules and consumers will need to be able to specify which
     // module they want to access.
-    const mod = b.addModule("app_tracker", .{
+    const mod = b.addModule("flextracker", .{
         // The root source file is the "entry point" of this module. Users of
         // this module will only be able to access public declarations contained
         // in this file, which means that if you have declarations that you
@@ -63,7 +74,7 @@ pub fn build(b: *std.Build) void {
     // If neither case applies to you, feel free to delete the declaration you
     // don't need and to put everything under a single module.
     const exe = b.addExecutable(.{
-        .name = "app_tracker",
+        .name = "flextracker",
         .root_module = b.createModule(.{
             // b.createModule defines a new module just like b.addModule but,
             // unlike b.addModule, it does not expose the module to consumers of
@@ -78,14 +89,18 @@ pub fn build(b: *std.Build) void {
             // List of modules available for import in source files part of the
             // root module.
             .imports = &.{
-                // Here "app_tracker" is the name you will use in your source code to
-                // import this module (e.g. `@import("app_tracker")`). The name is
+                // Here "flextracker" is the name you will use in your source code to
+                // import this module (e.g. `@import("flextracker")`). The name is
                 // repeated because you are allowed to rename your imports, which
                 // can be extremely useful in case of collisions (which can happen
                 // importing modules from different packages).
-                .{ .name = "app_tracker", .module = mod },
-                // httpz 模块导入
+                .{ .name = "flextracker", .module = mod },
+                // httpz module import
                 .{ .name = "httpz", .module = httpz.module("httpz") },
+                // zig-string module import
+                .{ .name = "string", .module = zig_string.module("string") },
+                // nexlog module import
+                .{ .name = "nexlog", .module = nexlog.module("nexlog") },
             },
         }),
     });

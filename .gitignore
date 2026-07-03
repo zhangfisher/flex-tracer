@@ -1,4 +1,5 @@
 zig-out/ 
-*.core
-.jetzig
+*.core 
 .zig-cache/
+packages/server/zig-pkg
+node_modules/

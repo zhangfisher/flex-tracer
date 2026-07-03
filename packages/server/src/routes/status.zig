@@ -11,7 +11,7 @@ pub fn statusHandler(_: *httpz.Request, res: *httpz.Response) !void {
     // For simplicity, timestamp field is removed in this example
     try res.json(.{
         .status = "running",
-        .server = "app-tracker",
+        .server = "flextracker",
         .framework = "httpz",
         .version = "0.0.1",
     }, .{});

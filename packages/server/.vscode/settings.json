@@ -1,0 +1,13 @@
+{
+  "zig.zigPath": "zig",
+  "zig.zigLibPath": "C:\\Program Files\\zig\\lib",
+  "zig.buildOnSave": false,
+  "zig.enableAdvancedDiagnostics": true,
+  "zig.formattingProvider": "zls",
+  "files.associations": {
+    "*.zig": "zig"
+  },
+  "editor.formatOnSave": true,
+  "editor.inlayHints.enabled": true,
+  "terminal.integrated.defaultProfile.windows": "Git Bash"
+}

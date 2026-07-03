@@ -13,6 +13,6 @@ pub fn jsonHelloHandler(req: *httpz.Request, res: *httpz.Response) !void {
     try res.json(.{
         .message = "Hello!",
         .name = name,
-        .greeting = "Welcome to App Tracker",
+        .greeting = "Welcome to FlexTracker",
     }, .{});
 }

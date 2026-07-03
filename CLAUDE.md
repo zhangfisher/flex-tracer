@@ -83,6 +83,7 @@ bun update
 - **`build.zig.zon`** - 包元数据和依赖声明
 - **`HTTP中间件`** - 保存在`pacakges/server/src/middlewares`
 - **`工具函数`** - 保存在`pacakges/server/src/utils`
+- **`日志输出`** - 使用`nexlog`
 
 模块化设计：业务逻辑在 `root.zig` 模块中，CLI 入口在 `main.zig` 中分离。
 

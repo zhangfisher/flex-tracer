@@ -55,7 +55,7 @@ fn indexHandler(_: *httpz.Request, res: *httpz.Response) !void {
         \\<html lang="en">
         \\<head>
         \\    <meta charset="UTF-8">
-        \\    <title>App Tracker API</title>
+        \\    <title>FlexTracker API</title>
         \\    <style>
         \\        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
         \\        h1 { color: #333; }
@@ -65,7 +65,7 @@ fn indexHandler(_: *httpz.Request, res: *httpz.Response) !void {
         \\    </style>
         \\</head>
         \\ <body>
-        \\    <h1>🚀 App Tracker API Server</h1>
+        \\    <h1>🚀 FlexTracker API Server</h1>
         \\    <p>Welcome to HTTP server built with httpz framework!</p>
         \\
         \\    <h2>Available API Endpoints:</h2>
@@ -112,7 +112,7 @@ fn helloHandler(req: *httpz.Request, res: *httpz.Response) !void {
     res.content_type = httpz.ContentType.TEXT;
 
     // Use arena allocator to create response (auto cleanup after request)
-    res.body = try std.fmt.allocPrint(res.arena, "Hello, {s}!\nWelcome to App Tracker server!", .{name});
+    res.body = try std.fmt.allocPrint(res.arena, "Hello, {s}!\nWelcome to FlexTracker server!", .{name});
 }
 
 // Status handler - returns JSON status
@@ -123,7 +123,7 @@ fn statusHandler(_: *httpz.Request, res: *httpz.Response) !void {
     // Use res.json method to serialize JSON object
     try res.json(.{
         .status = "running",
-        .server = "app-tracker",
+        .server = "flextracker",
         .framework = "httpz",
         .version = "0.0.1",
         .timestamp = std.time.timestamp(),
@@ -142,7 +142,7 @@ fn jsonHelloHandler(req: *httpz.Request, res: *httpz.Response) !void {
     try res.json(.{
         .message = "Hello!",
         .name = name,
-        .greeting = "Welcome to App Tracker",
+        .greeting = "Welcome to FlexTracker",
     }, .{});
 }
 
