@@ -2,4 +2,7 @@ zig-out/
 *.core 
 .zig-cache/
 packages/server/zig-pkg
+packages/server/zig-cache
+packages/server/zig-out
+zig-pkg
 node_modules/
